@@ -2,9 +2,16 @@ pipeline {
     agent any
     stages {
         stage('Install') {
-            steps{
+            steps {
                 bat '''
                 npm install
+                '''
+            }
+        }
+        stage('Delete') {
+            steps {
+                bat '''
+                pm2 delete all
                 '''
             }
         }
